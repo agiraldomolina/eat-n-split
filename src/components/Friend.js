@@ -1,3 +1,4 @@
+import Button from "./Button"
 export default function Friend({ friend }) {
     return <li>
         <img src={friend.image} alt={friend.name}/>
@@ -22,6 +23,6 @@ export default function Friend({ friend }) {
             </p>
         }
 
-        <button className="button">Select</button>
+        <Button>Select</Button>
     </li>
 }
