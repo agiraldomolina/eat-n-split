@@ -1,6 +1,9 @@
 import Button from "./Button"
-export default function Friend({ friend }) {
-    return <li>
+export default function Friend({ friend, onSelectedFriend, selectedFriend}) {
+     const isSelected = friend?.id === selectedFriend?.id;
+    console.log('from Friend: ', selectedFriend)
+
+    return <li className={isSelected? "selected": ""} >
         <img src={friend.image} alt={friend.name}/>
         <h3>{friend.name}</h3>
 
@@ -22,7 +25,10 @@ export default function Friend({ friend }) {
                 You  and  {friend.name} are even.
             </p>
         }
-
-        <Button>Select</Button>
+        <Button
+            onClick={()=>onSelectedFriend(friend)  }
+        >
+            {isSelected? "Close" : "Select"  }
+        </Button>
     </li>
 }
